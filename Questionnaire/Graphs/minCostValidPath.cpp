@@ -15,7 +15,7 @@
  * Example:
  * Input: grid = [[1,1,1],[1,1,1],[1,1,1]]
  * Output: 0
- * Explanation: You don't need to change any direction. 
+ * Explanation: You don't need to change any direction.
  * 
  * Constraints:
  * - m == grid.length

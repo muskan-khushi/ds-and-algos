@@ -10,7 +10,7 @@
 
 // An adjacent cell of the cell (r, c), is one of the cells (r, c + 1), (r, c - 1), (r + 1, c) or (r - 1, c) if it exists.
 
-#include <bits/stdc++.h>
+#include <bits/stdc++.h>  
 using namespace std;
 
 class Solution {
