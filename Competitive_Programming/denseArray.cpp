@@ -21,7 +21,7 @@ int main(){
             int x = min(a[i], a[i+1]);
             int y = max(a[i], a[i+1]);
 
-            while (y*2 > x){
+            while (y > 2*x){
                 x *= 2;
                 count++;
             } 
