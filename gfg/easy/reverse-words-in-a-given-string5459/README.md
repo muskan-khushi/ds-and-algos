@@ -1,0 +1,81 @@
+# Reverse Words
+
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
+
+## Problem
+
+Given a string  **`s`**,  **reverse**  the string without reversing its  **individual words**. Words are separated by  **dots(.)**.
+
+ **Note:** The string may contain leading or trailing dots(.) or multiple dots(.) between two words. The returned string should only have a single dot(.) separating the words, and  **no extra**  **dots**  should be included.
+
+ **Examples :** 
+
+```
+Input: s = "i.like.this.program.very.much"
+Output: "much.very.program.this.like.i"
+Explanation: The words in the input string are reversed while maintaining the dots as separators, resulting in "much.very.program.this.like.i".
+```
+
+```
+Input: s = "..geeks..for.geeks."
+Output: "geeks.for.geeks"
+Explanation: After removing extra dots and reversing the whole string, the input string becomes "geeks.for.geeks".
+```
+
+```
+Input: s = "..home....."
+Output: "home"
+Explanation: The input string contains only one word with extra dots around it. After removing the extra dots, the output is "home".
+```
+
+ **Constraints:** 
+1 ≤ s.length() ≤ 106
+String  **`s`**  contains only lowercase English alphabets and dots.
+
+## Solution
+
+**Language:** C++  
+**Runtime:** N/A  
+**Memory:** N/A  
+**Submitted:** 2026-08-20T03:43:15.424Z  
+
+```cpp
+class Solution {
+  public:
+    string reverseWords(string &s) {
+        // code here
+        vector<string> words;
+        string word = "";
+        
+        for (char ch : s){
+            if (ch == '.'){
+                if (!word.empty()){
+                    words.push_back(word);
+                    word = "";
+                }
+            }
+            else word += ch;
+        }
+        
+        if (!word.empty()){
+            words.push_back(word);
+        }
+        
+        string ans = "";
+        for (int i = words.size()-1; i>=0; i--){
+            ans += words[i];
+            
+            if (i != 0){
+                ans += '.';
+            }
+        }
+        
+        return ans;
+
+    }
+};
+```
+
+---
+
+[View on GeeksforGeeks](https://practice.geeksforgeeks.org/problems/reverse-words-in-a-given-string5459/1)
