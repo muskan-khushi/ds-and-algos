@@ -47,16 +47,16 @@ Output: [[0,0,0,0],[0,4,5,0],[0,3,1,0]]
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 20.7 MB (beats 86.24%)  
-**Submitted:** 2026-08-24T10:47:57.848Z  
+**Memory:** 21.1 MB (beats 25.73%)  
+**Submitted:** 2026-08-24T13:42:54.434Z  
 
 ```cpp
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
-        int m = matrix.size();
+        int m = matrix.size(); //rows
         int n = matrix[0].size();
-
+        
         bool firstRowZero = false;
         for (int i=0; i<n; i++){
             if (matrix[0][i] == 0){
@@ -84,7 +84,7 @@ public:
 
         for (int i=1; i<m; i++){
             for (int j=1; j<n; j++){
-                if (matrix[i][0] == 0 || matrix[0][j] == 0){
+                if(matrix[i][0] == 0 || matrix[0][j] == 0){
                     matrix[i][j] = 0;
                 }
             }
