@@ -36,9 +36,9 @@ Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 9.4 MB (beats 57.55%)  
-**Submitted:** 2026-08-24T07:48:43.192Z  
+**Runtime:** 2 ms (beats 1.81%)  
+**Memory:** 9.4 MB (beats 18.60%)  
+**Submitted:** 2026-08-24T07:55:45.088Z  
 
 ```cpp
 class Solution {
@@ -50,38 +50,41 @@ public:
         vector<int> ans;
 
         int top = 0;
-        int bottom = n-1;
-        int left = 0;
-        int right = m-1;
+        int bottom = n - 1;
 
-        while (left  <= right && top <= bottom){
-            //print top
-            for (int i=left; i<=right; i++){
+        int left = 0;
+        int right = m - 1;
+
+        while (top <= bottom && left <= right) {
+            // print top
+            for (int i = left; i <= right; i++) {
                 ans.push_back(matrix[top][i]);
             }
             top++;
 
-            //print right
-            for (int i=top; i<=bottom; i++){
+            // print right
+            for (int i = top; i <= bottom; i++) {
                 ans.push_back(matrix[i][right]);
             }
             right--;
 
-            //print bottom
-            if (top <= bottom){
-            for (int i=right; i>=left; i--){
-                ans.push_back(matrix[bottom][i]);
+            // print bottom
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--) {
+                    ans.push_back(matrix[bottom][i]);
+                }
             }
             bottom--;
+            
+            //print left
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    ans.push_back(matrix[i][left]);
+                }
+                left++;
             }
 
-            //print left
-            if (left <= right){
-            for (int i=bottom; i>=top; i--){
-                ans.push_back(matrix[i][left]);
-            }
-            left++;
-            }
+            
         }
 
         return ans;
