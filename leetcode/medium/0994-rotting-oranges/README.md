@@ -55,8 +55,8 @@ Explanation: Since there are already no fresh oranges at minute 0, the answer is
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 16.8 MB (beats 69.47%)  
-**Submitted:** 2026-08-25T04:56:35.434Z  
+**Memory:** 16.6 MB (beats 86.30%)  
+**Submitted:** 2026-08-26T03:27:00.410Z  
 
 ```cpp
 class Solution {
@@ -64,11 +64,14 @@ public:
     int orangesRotting(vector<vector<int>>& grid) {
         int m = grid.size();
         int n = grid[0].size();
-
+        
+        //to store rotten oranges
         queue<pair<int, int>> q;
 
+        //to store fresh count
         int fresh = 0;
 
+        //storing rotten oranges in queue and tracking fresh count
         for (int i=0; i<m; i++){
             for (int j=0; j<n; j++){
                 if (grid[i][j] == 2){
@@ -80,17 +83,20 @@ public:
             }
         }
 
+        //initializing minutes
         int minutes = 0;
 
+        //all turns
         while (!q.empty() && fresh > 0){
             int size = q.size();
 
+            //one turn -> one level
             while (size--){
                 auto [r,c] = q.front();
                 q.pop();
 
-                int dr[] = {0,-1,0,1};
-                int dc[] = {1,0,-1,0};
+                int dr[] = {-1,0,1,0};
+                int dc[] = {0,-1,0,1};
 
                 for (int k=0; k<4; k++){
                     int nr = r + dr[k];
@@ -105,9 +111,9 @@ public:
             }
             minutes++;
         }
-
         if (fresh > 0) return -1;
         return minutes;
+        
     }
 };
 ```
