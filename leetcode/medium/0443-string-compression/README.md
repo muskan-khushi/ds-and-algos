@@ -62,39 +62,44 @@ After modifying the input array in-place, the first 4 characters of chars should
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 13.8 MB (beats 76.26%)  
-**Submitted:** 2026-08-27T05:23:17.881Z  
+**Memory:** 13.9 MB (beats 49.00%)  
+**Submitted:** 2026-08-27T05:33:27.887Z  
 
 ```cpp
 class Solution {
 public:
     int compress(vector<char>& chars) {
+        //which position to write
         int write = 0;
+
+        //scan the chars
         int i = 0;
 
-        while (i < chars.size()){
-            char currChar = chars[i];
+        while (i<chars.size()){
+            char currentChar = chars[i];
             int j = i;
-            while (j< chars.size() && chars[j] == currChar ){
+
+            while (j<chars.size() && chars[j] == currentChar){
                 j++;
             }
-            int count = j - i;
 
-            chars[write] = currChar;
+            int count = j-i;
+
+            chars[write] = currentChar;
             write++;
 
             if (count > 1){
                 string countStr = to_string(count);
-                for (char digit : countStr){
-                    chars[write] = digit;
+                for (char ch : countStr){
+                    chars[write] = ch;
                     write++;
                 }
             }
 
-             i = j;
-        }   
+            i=j;
+         }
 
-        return write;     
+         return write;
     }
 };
 ```
