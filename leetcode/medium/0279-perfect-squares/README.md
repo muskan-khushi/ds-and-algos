@@ -37,9 +37,9 @@ Explanation: 13 = 4 + 9.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 41 ms (beats 75.26%)  
+**Runtime:** 39 ms (beats 84.24%)  
 **Memory:** 13.2 MB (beats 57.28%)  
-**Submitted:** 2026-08-27T05:45:08.292Z  
+**Submitted:** 2026-08-27T05:52:32.203Z  
 
 ```cpp
 class Solution {
@@ -47,7 +47,6 @@ public:
     int numSquares(int n) {
         vector<int> dp(n+1, INT_MAX);
         dp[0] = 0;
-
         for (int i=1; i<=n; i++){
             for (int j=1; j*j<=i; j++){
                 int square = j*j;
@@ -56,6 +55,7 @@ public:
         }
 
         return dp[n];
+
     }
 };
 ```
