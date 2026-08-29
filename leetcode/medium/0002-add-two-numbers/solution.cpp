@@ -16,24 +16,26 @@ public:
 
         int carry = 0;
 
-        while (l1 != nullptr || l2 != nullptr || carry !=0){
-            int val1 = 0; int val2 = 0;
-            if (l1!=nullptr) val1 = l1->val;
+        while (l1!=nullptr || l2 != nullptr || carry != 0){
+            int val1 = 0;
+            int val2 = 0;
+
+            if (l1 != nullptr) val1 = l1->val;
             if (l2 != nullptr) val2 = l2->val;
+
             int sum = val1 + val2 + carry;
+
             int digit = sum % 10;
-            carry = sum/10;
+            carry = sum / 10;
+
             tail->next = new ListNode(digit);
             tail = tail->next;
-            if (l1 != nullptr){
-                l1 = l1->next;
-            }
-            if (l2 != nullptr)
-            {
-                l2 = l2->next;
-            }
-        }
 
+            if (l1 != nullptr) l1 = l1->next;
+            if (l2 != nullptr) l2 = l2->next;
+
+            
+        }
         return dummy->next;
     }
 };
