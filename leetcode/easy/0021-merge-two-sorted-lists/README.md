@@ -46,52 +46,45 @@ Output: [0]
 
 ## Solution
 
-**Language:** C++  
+**Language:** Python  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 19.5 MB (beats 27.60%)  
-**Submitted:** 2026-08-29T09:42:38.239Z  
+**Memory:** 19.2 MB (beats 94.66%)  
+**Submitted:** 2026-08-29T09:51:03.388Z  
 
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        ListNode* dummy = new ListNode(-1);
-        ListNode* tail = dummy;
+```py
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode(-1)
+        tail = dummy
 
-        while (list1 != nullptr && list2 != nullptr){
-            if (list1->val <= list2->val){
-                tail->next = list1;
-                list1 = list1->next;
-            }
-            else {
-                tail->next = list2;
-                list2 = list2->next;
-            }
-            tail = tail->next;
-        }
+        while list1 is not None and list2 is not None:
+            if list1.val <= list2.val:
+                tail.next = list1
+                list1 = list1.next
 
-        if (list1 != nullptr){
-            tail->next = list1;
-            tail=tail->next;
-        }
+            else:
+                tail.next = list2
+                list2 = list2.next
 
-        if (list2 != nullptr){
-            tail->next = list2;
-            tail = tail->next;
-        }
-        return dummy->next;
-    }
-};
+            tail = tail.next
+
+        if list1 is not None:
+            tail.next = list1
+            tail = tail.next
+
+        if list2 is not None:
+            tail.next = list2
+            tail = tail.next
+
+        return dummy.next
+
+
+        
 ```
 
 ---
