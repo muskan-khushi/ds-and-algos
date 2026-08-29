@@ -53,35 +53,34 @@ Output: [1,5,1]
 
 ## Solution
 
-**Language:** Python  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 19.3 MB (beats 67.19%)  
-**Submitted:** 2026-08-29T10:05:41.631Z  
+**Language:** C++  
+**Runtime:** 3 ms (beats 2.19%)  
+**Memory:** 15.8 MB (beats 14.98%)  
+**Submitted:** 2026-08-29T10:13:56.093Z  
 
-```py
-class Solution:
-    def nextPermutation(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        n = len(nums)
-        i = n-2
-        while i>=0 and nums[i]>=nums[i+1]:
-            i-=1
-        if i>= 0:
-            j = n-1
-            while nums[j] <= nums[i]:
-                j-=1
-            nums[i],nums[j] = nums[j],nums[i]
-
-        left = i+1
-        right = n-1
-        while left < right:
-            nums[left],nums[right] = nums[right],nums[left]
-            left += 1
-            right -= 1
-
-        
+```cpp
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+        int n = nums.size();
+        int idx = -1;
+        for (int i=n-2; i>=0; i--){
+            if (nums[i] < nums[i+1]){
+                idx = i;
+                break;
+            } 
+        }
+        if (idx != -1){
+        for (int i=n-1; i>idx; i--){
+            if (nums[idx] < nums[i] ) {
+                swap(nums[i], nums[idx]);
+                break;
+            }
+        }
+        }
+        reverse(nums.begin()+idx+1, nums.end());
+    }
+};
 ```
 
 ---
