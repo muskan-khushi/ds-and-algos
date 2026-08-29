@@ -47,8 +47,8 @@ Output: [8,9,9,9,0,0,0,1]
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 77.1 MB (beats 75.82%)  
-**Submitted:** 2026-08-29T10:25:35.587Z  
+**Memory:** 77.2 MB (beats 45.91%)  
+**Submitted:** 2026-08-29T10:42:17.781Z  
 
 ```cpp
 /**
@@ -69,24 +69,26 @@ public:
 
         int carry = 0;
 
-        while (l1 != nullptr || l2 != nullptr || carry !=0){
-            int val1 = 0; int val2 = 0;
-            if (l1!=nullptr) val1 = l1->val;
+        while (l1!=nullptr || l2 != nullptr || carry != 0){
+            int val1 = 0;
+            int val2 = 0;
+
+            if (l1 != nullptr) val1 = l1->val;
             if (l2 != nullptr) val2 = l2->val;
+
             int sum = val1 + val2 + carry;
+
             int digit = sum % 10;
-            carry = sum/10;
+            carry = sum / 10;
+
             tail->next = new ListNode(digit);
             tail = tail->next;
-            if (l1 != nullptr){
-                l1 = l1->next;
-            }
-            if (l2 != nullptr)
-            {
-                l2 = l2->next;
-            }
-        }
 
+            if (l1 != nullptr) l1 = l1->next;
+            if (l2 != nullptr) l2 = l2->next;
+
+            
+        }
         return dummy->next;
     }
 };
