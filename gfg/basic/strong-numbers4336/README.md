@@ -29,32 +29,26 @@ Explanation: The sum of the factorials of its digits is not equal to 5314. There
 
 ## Solution
 
-**Language:** C++  
+**Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-30T04:24:03.285Z  
+**Submitted:** 2026-08-30T04:31:37.839Z  
 
-```cpp
-class Solution {
-  public:
-  public:
-    bool isStrong(int n) {
-        // code here.
-        int ans = 0;
-        string s = to_string(n);
-        for (char ch : s){
-            int digit = (ch - '0');
-            int fact = 1;
-            for (int i=1; i<=digit; i++){
-                fact *= i;
-            }
-            ans += fact;
-        }
+```py
+class Solution:
+    def isStrong(self, n):
+        # code here
+        s = str(n)
+        ans = 0
         
-        return ans == n;
-    }
-};
-
+        for ch in s:
+            digit = int(ch)
+            fact = 1
+            for i in range(1,digit+1):
+                fact*=i
+            ans += fact
+            
+        return ans == n
 ```
 
 ---
