@@ -35,27 +35,23 @@ Explanation: 100 is not an Armstrong number since 13 + 03 + 03 = 1.
 
 ## Solution
 
-**Language:** C++  
+**Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-30T04:03:16.338Z  
+**Submitted:** 2026-08-30T04:06:46.742Z  
 
-```cpp
-class Solution {
-  public:
-    bool armstrongNumber(int n) {
-        // code here
-        string s = to_string(n);
-        int power = s.size();
-        int ans = 0;
-        for (int i=0; i< power; i++){
-            int digit = s[i] - '0';
-            ans += pow(digit, power);
-        }
-        if (n == ans) return true;
-        else return false;
-    }
-};
+```py
+class Solution:
+    def armstrongNumber (self, n):
+        # code here 
+        s = str(n)
+        power = len(s)
+        ans = 0
+        
+        for digit in s:
+            ans += int(digit)**power
+            
+        return n == ans
 ```
 
 ---
