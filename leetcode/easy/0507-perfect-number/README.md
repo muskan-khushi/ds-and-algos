@@ -36,22 +36,30 @@ Output: false
 
 ## Solution
 
-**Language:** C++  
-**Runtime:** 2080 ms (beats 28.13%)  
-**Memory:** 7.9 MB (beats 21.30%)  
-**Submitted:** 2026-08-30T04:08:53.910Z  
+**Language:** Python  
+**Runtime:** 7 ms (beats 41.61%)  
+**Memory:** 19.4 MB (beats 16.94%)  
+**Submitted:** 2026-08-30T04:15:34.192Z  
 
-```cpp
-class Solution {
-public:
-    bool checkPerfectNumber(int num) {
-        int ans = 0;
-        for (int i=1; i<num; i++){
-            if (num % i == 0) ans += i;
-        }
-        return ans == num;
-    }
-};
+```py
+class Solution:
+    def checkPerfectNumber(self, num: int) -> bool:
+        if num <= 1:
+            return False
+
+        ans = 1
+        i = 2
+
+        while i*i <= num:
+            if num%i == 0:
+                ans += i
+
+                if i != num//i:
+                    ans += num//i
+             
+            i+=1
+
+        return num == ans
 ```
 
 ---
