@@ -93,18 +93,18 @@ Bob registered in contest 207 and the percentage is ((1/3) * 100) = 33.33%
 ## Solution
 
 **Language:** SQL  
-**Runtime:** 962 ms (beats 81.72%)  
+**Runtime:** 1028 ms (beats 63.74%)  
 **Memory:** 0B (beats 100.00%)  
-**Submitted:** 2026-09-03T03:44:00.467Z  
+**Submitted:** 2026-09-03T03:48:18.974Z  
 
 ```sql
 # Write your MySQL query statement below
-SELECT contest_id, ROUND(
-    COUNT(user_id)*100/(SELECT COUNT(*) FROM Users), 2
-) AS Percentage
+SELECT contest_id, 
+ROUND (COUNT(user_id)*100/(SELECT COUNT(*) FROM Users), 2) 
+AS percentage
 FROM Register
 GROUP BY contest_id
-ORDER BY Percentage DESC, contest_id ASC;
+ORDER BY percentage DESC, contest_id ASC;
 ```
 
 ---
