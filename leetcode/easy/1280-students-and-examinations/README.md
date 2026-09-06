@@ -126,9 +126,9 @@ John attended the Math exam 1 time, the Physics exam 1 time, and the Programming
 ## Solution
 
 **Language:** SQL  
-**Runtime:** 1007 ms (beats 78.39%)  
+**Runtime:** 1118 ms (beats 52.58%)  
 **Memory:** 0B (beats 100.00%)  
-**Submitted:** 2026-09-01T04:49:30.284Z  
+**Submitted:** 2026-09-06T04:23:22.034Z  
 
 ```sql
 # Write your MySQL query statement below
