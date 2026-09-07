@@ -46,9 +46,9 @@ You earn a total of 9 points.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 15.8 MB (beats 75.18%)  
-**Submitted:** 2026-09-07T17:14:17.869Z  
+**Runtime:** 0 ms  
+**Memory:** 7.9 MB  
+**Submitted:** 2026-09-07T17:14:27.418Z  
 
 ```cpp
 class Solution {
