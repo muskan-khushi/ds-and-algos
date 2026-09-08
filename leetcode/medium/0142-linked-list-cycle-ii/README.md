@@ -55,8 +55,8 @@ Explanation: There is no cycle in the linked list.
 
 **Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 46.7 MB (beats 50.24%)  
-**Submitted:** 2026-09-08T11:12:14.735Z  
+**Memory:** 47 MB (beats 13.60%)  
+**Submitted:** 2026-09-08T11:20:03.727Z  
 
 ```java
 /**
@@ -75,15 +75,17 @@ public class Solution {
         ListNode slow = head;
         ListNode fast = head;
 
-        while (fast != null && fast.next!=null){
+        while (fast != null && fast.next != null){
             slow = slow.next;
             fast = fast.next.next;
-
+           
+            //head se entrance = head se collision/meeting point (ditance)
+            //dono jahaa pe mil jaaye
             if (slow == fast){
                 ListNode entry = head;
                 while (entry != slow){
-                    entry = entry.next;
                     slow = slow.next;
+                    entry = entry.next;
                 }
                 return entry;
             }
