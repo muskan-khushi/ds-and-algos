@@ -48,13 +48,13 @@ Output: false
 **Language:** Java  
 **Runtime:** 1 ms (beats 77.61%)  
 **Memory:** 42.2 MB (beats 78.86%)  
-**Submitted:** 2026-09-08T11:29:38.614Z  
+**Submitted:** 2026-09-08T11:33:44.123Z  
 
 ```java
 class Solution {
     private int getNext(int n){
         int sum = 0;
-        while (n > 0){
+        while (n>0){
             int digit = n%10;
             sum += digit*digit;
             n /= 10;
@@ -64,6 +64,7 @@ class Solution {
     public boolean isHappy(int n) {
         int slow = n;
         int fast = n;
+
         do {
             slow = getNext(slow);
             fast = getNext(getNext(fast));
