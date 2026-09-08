@@ -49,8 +49,8 @@ Output: [1]
 
 **Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 43.5 MB (beats 58.48%)  
-**Submitted:** 2026-09-08T13:33:49.712Z  
+**Memory:** 43.7 MB (beats 21.24%)  
+**Submitted:** 2026-09-08T13:38:37.046Z  
 
 ```java
 /**
@@ -65,8 +65,7 @@ Output: [1]
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode dummy = new ListNode(0,head);
-
+        ListNode dummy = new ListNode(0, head);
         ListNode slow = dummy;
         ListNode fast = dummy;
 
