@@ -54,9 +54,9 @@ Output: 3
 ## Solution
 
 **Language:** Java  
-**Runtime:** 5 ms (beats 62.41%)  
-**Memory:** 82.9 MB (beats 48.01%)  
-**Submitted:** 2026-09-08T14:14:04.896Z  
+**Runtime:** 4 ms (beats 92.36%)  
+**Memory:** 83 MB (beats 48.01%)  
+**Submitted:** 2026-09-08T16:19:16.957Z  
 
 ```java
 class Solution {
@@ -70,11 +70,10 @@ class Solution {
         } while (fast != slow);
 
         int entry = nums[0];
-        while (entry != slow){
-            entry = nums[entry];
+        while (slow != entry){
             slow = nums[slow];
+            entry = nums[entry];
         }
-
         return entry;
     }
 }
