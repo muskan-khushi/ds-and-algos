@@ -9,11 +9,10 @@ class Solution {
         } while (fast != slow);
 
         int entry = nums[0];
-        while (entry != slow){
-            entry = nums[entry];
+        while (slow != entry){
             slow = nums[slow];
+            entry = nums[entry];
         }
-
         return entry;
     }
 }
