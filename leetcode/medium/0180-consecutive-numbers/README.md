@@ -57,9 +57,9 @@ Explanation: 1 is the only number that appears consecutively for at least three 
 ## Solution
 
 **Language:** SQL  
-**Runtime:** 746 ms (beats 18.52%)  
+**Runtime:** 544 ms (beats 88.81%)  
 **Memory:** 0B (beats 100.00%)  
-**Submitted:** 2026-08-27T05:06:25.220Z  
+**Submitted:** 2026-09-08T03:34:59.451Z  
 
 ```sql
 # Write your MySQL query statement below
