@@ -44,30 +44,28 @@ All numbers from 1 to 998 have fewer than four digits. Therefore, no commas are 
 ## Solution
 
 **Language:** C++  
-**Runtime:** 2 ms (beats 15.77%)  
-**Memory:** 8.6 MB (beats 51.38%)  
-**Submitted:** 2026-09-08T10:04:24.037Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 8.5 MB (beats 51.38%)  
+**Submitted:** 2026-09-08T10:12:45.376Z  
 
 ```cpp
 class Solution {
 public:
     int countCommas(int n) {
-        if (n < 1000) return 0;
-        long long ans = 0;
+        if (n<1000) return 0;
+        long long count = 0;
 
         long long start = 1000;
-        int commas = 1;
+        long long commas = 1;
 
         while (start <= n){
             long long end = min((long long)n, start*1000-1);
-            ans += (end - start + 1)*commas;
+            count += (end - start + 1)*commas;
 
             start *= 1000;
             commas++;
         }
-
-        return ans;
-
+        return count;
     }
 };
 ```
