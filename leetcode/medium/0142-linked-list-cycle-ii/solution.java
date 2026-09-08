@@ -14,15 +14,17 @@ public class Solution {
         ListNode slow = head;
         ListNode fast = head;
 
-        while (fast != null && fast.next!=null){
+        while (fast != null && fast.next != null){
             slow = slow.next;
             fast = fast.next.next;
-
+           
+            //head se entrance = head se collision/meeting point (ditance)
+            //dono jahaa pe mil jaaye
             if (slow == fast){
                 ListNode entry = head;
                 while (entry != slow){
-                    entry = entry.next;
                     slow = slow.next;
+                    entry = entry.next;
                 }
                 return entry;
             }
