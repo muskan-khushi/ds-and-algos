@@ -14,18 +14,16 @@ class Solution {
         for (int i=0; i<a-1; i++){
             beforeA = beforeA.next;
         }
-
         ListNode afterB = beforeA;
         for (int i=0; i<=b-a+1; i++){
             afterB = afterB.next;
         }
-
         beforeA.next = list2;
-        ListNode last2 = list2;
-        while (last2.next != null){
-            last2 = last2.next;
+        ListNode end2 = list2;
+        while (end2.next != null){
+            end2 = end2.next;
         }
-        last2.next = afterB;
+        end2.next = afterB;
         return list1;
     }
 }
