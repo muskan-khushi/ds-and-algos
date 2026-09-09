@@ -46,9 +46,9 @@ Output: []
 ## Solution
 
 **Language:** Java  
-**Runtime:** 10 ms (beats 49.64%)  
-**Memory:** 59.7 MB (beats 30.49%)  
-**Submitted:** 2026-09-09T05:00:55.527Z  
+**Runtime:** 9 ms (beats 96.61%)  
+**Memory:** 59.4 MB (beats 62.27%)  
+**Submitted:** 2026-09-09T05:12:05.102Z  
 
 ```java
 /**
@@ -72,6 +72,7 @@ class Solution {
             slow = slow.next;
             fast = fast.next.next;
         }
+
         ListNode second = slow.next;
         slow.next = null;
 
@@ -81,7 +82,7 @@ class Solution {
         return merge(left, right);
     }
 
-    private ListNode merge(ListNode list1, ListNode list2){
+    private ListNode merge (ListNode list1, ListNode list2){
         ListNode dummy = new ListNode(0);
         ListNode tail = dummy;
 
@@ -89,19 +90,23 @@ class Solution {
             if (list1.val <= list2.val){
                 tail.next = list1;
                 list1 = list1.next;
+                tail = tail.next;
             }
             else {
                 tail.next = list2;
                 list2 = list2.next;
+                tail = tail.next;
             }
-            tail = tail.next;
         }
+
         if (list1 != null){
             tail.next = list1;
+            list1 = list1.next;
             tail = tail.next;
         }
         if (list2 != null){
             tail.next = list2;
+            list2 = list2.next;
             tail = tail.next;
         }
 
