@@ -15,7 +15,7 @@ class Solution {
         Node slow = head;
         Node fast = head;
         
-        while (fast != null && fast.next != null){
+        while (fast!=null && fast.next!=null){
             slow = slow.next;
             fast = fast.next.next;
             
@@ -25,18 +25,19 @@ class Solution {
         if (fast == null || fast.next == null) return 0;
         
         Node entry = head;
-        while (entry != slow){
+        while (slow != entry){
             slow = slow.next;
             entry = entry.next;
         }
         
         int length = 1;
-        
         Node curr = entry.next;
+        
         while (curr != entry){
             curr = curr.next;
             length++;
         }
+        
         return length;
     }
 }
