@@ -3,9 +3,9 @@ class Solution {
         int n = nums.length;
         int minLen = Integer.MAX_VALUE;
         int sum = 0;
-
         int left = 0;
-        for (int right = 0; right <n ; right++){
+
+        for (int right=0; right<n; right++){
             sum += nums[right];
             while (sum >= target){
                 minLen = Math.min(minLen, right-left+1);
@@ -14,7 +14,6 @@ class Solution {
             }
         }
         if (minLen == Integer.MAX_VALUE) return 0;
-
         return minLen;
     }
 }
