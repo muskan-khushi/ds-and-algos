@@ -47,8 +47,8 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 
 **Language:** Java  
 **Runtime:** 0 ms  
-**Memory:** 42.8 MB  
-**Submitted:** 2026-09-10T03:45:12.587Z  
+**Memory:** 42.7 MB  
+**Submitted:** 2026-09-10T03:45:54.758Z  
 
 ```java
 class Solution {
@@ -58,7 +58,7 @@ class Solution {
         int maxLen = 0;
 
         for  (int right = 0; right < s.length(); right++){
-            while (set.contains(s.charAt(left))){
+            while (set.contains(s.charAt(right))){
                 set.remove(s.charAt(left));
                 left++;
             }
