@@ -48,9 +48,9 @@ Output: 0
 ## Solution
 
 **Language:** Java  
-**Runtime:** 1 ms (beats 99.84%)  
-**Memory:** 69.3 MB (beats 27.61%)  
-**Submitted:** 2026-09-10T03:32:29.663Z  
+**Runtime:** 2 ms (beats 21.20%)  
+**Memory:** 69.5 MB (beats 11.51%)  
+**Submitted:** 2026-09-10T03:38:58.346Z  
 
 ```java
 class Solution {
@@ -58,9 +58,9 @@ class Solution {
         int n = nums.length;
         int minLen = Integer.MAX_VALUE;
         int sum = 0;
-
         int left = 0;
-        for (int right = 0; right <n ; right++){
+
+        for (int right=0; right<n; right++){
             sum += nums[right];
             while (sum >= target){
                 minLen = Math.min(minLen, right-left+1);
@@ -69,7 +69,6 @@ class Solution {
             }
         }
         if (minLen == Integer.MAX_VALUE) return 0;
-
         return minLen;
     }
 }
