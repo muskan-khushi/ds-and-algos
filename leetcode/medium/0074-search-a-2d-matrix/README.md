@@ -44,8 +44,8 @@ Output: false
 
 **Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 44 MB (beats 43.39%)  
-**Submitted:** 2026-09-11T08:30:38.185Z  
+**Memory:** 43.8 MB (beats 79.37%)  
+**Submitted:** 2026-09-11T08:36:30.672Z  
 
 ```java
 class Solution {
@@ -59,8 +59,8 @@ class Solution {
         while (left <= right){
             int mid = left + (right-left)/2;
 
-            int row = mid/cols;
-            int col = mid%cols;
+            int row = mid / cols;
+            int col = mid % cols;
 
             int value = matrix[row][col];
 
@@ -68,6 +68,7 @@ class Solution {
             else if (value < target) left = mid+1;
             else right = mid-1;
         }
+
         return false;
     }
 }
