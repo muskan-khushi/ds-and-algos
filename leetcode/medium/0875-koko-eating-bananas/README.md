@@ -50,24 +50,25 @@ Output: 23
 
 **Language:** Java  
 **Runtime:** 7 ms (beats 83.10%)  
-**Memory:** 48 MB (beats 42.57%)  
-**Submitted:** 2026-09-11T09:25:52.968Z  
+**Memory:** 48 MB (beats 30.01%)  
+**Submitted:** 2026-09-11T09:35:34.116Z  
 
 ```java
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
+        int n = piles.length;
         int left = 1;
         int right = 0;
         for (int pile : piles){
-            right = Math.max(pile, right);
+            right = Math.max(right, pile);
         }
+
         while (left < right){
             int mid = left + (right-left)/2;
             int hours = 0;
+            
+            for (int pile : piles) hours += (mid+pile-1)/mid;
 
-            for (int pile : piles){
-                hours += (pile+mid-1)/mid;
-            }
             if (hours <= h) right = mid;
             else left = mid+1;
         }
