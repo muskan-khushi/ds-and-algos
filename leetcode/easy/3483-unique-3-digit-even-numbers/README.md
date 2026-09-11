@@ -52,33 +52,33 @@ You are given an array of digits called `digits`. Your task is to determine the 
 ## Solution
 
 **Language:** Java  
-**Runtime:** 2 ms (beats 93.87%)  
-**Memory:** 44.5 MB (beats 87.07%)  
-**Submitted:** 2026-09-11T03:10:54.944Z  
+**Runtime:** 3 ms (beats 89.07%)  
+**Memory:** 44.8 MB (beats 82.00%)  
+**Submitted:** 2026-09-11T03:17:24.089Z  
 
 ```java
 class Solution {
     public int totalNumbers(int[] digits) {
+        int n = digits.length;
         boolean[] seen = new boolean[1000];
         int count = 0;
 
-        for (int i=0; i<digits.length; i++){
-            if (digits[i]==0) continue;
-            for (int j=0; j<digits.length; j++){
+        for (int i=0; i<n; i++){
+            if (digits[i] == 0) continue;
+
+            for (int j=0; j<n; j++){
                 if (j==i) continue;
-                for (int k=0; k<digits.length; k++){
-                    if (k==i || k==j) continue;
-                    if (digits[k] % 2 != 0) continue;
+
+                for (int k=0; k<n; k++){
+                    if (k==i || j==k || digits[k] % 2 != 0) continue;
 
                     int number = digits[i]*100 + digits[j]*10 + digits[k];
 
-                     if (!seen[number]){
-                    seen[number] = true;
-                    count++;
+                    if (!seen[number]){
+                        seen[number] = true;
+                        count++;
+                    }
                 }
-                }
-                
-               
             }
         }
         return count;
