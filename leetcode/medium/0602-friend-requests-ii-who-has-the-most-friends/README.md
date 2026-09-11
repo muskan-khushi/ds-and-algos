@@ -60,14 +60,14 @@ The person with id 3 is a friend of people 1, 2, and 4, so he has three friends 
 ## Solution
 
 **Language:** SQL  
-**Runtime:** 283 ms (beats 98.13%)  
+**Runtime:** 719 ms (beats 5.01%)  
 **Memory:** 0B (beats 100.00%)  
-**Submitted:** 2026-09-11T04:10:00.798Z  
+**Submitted:** 2026-09-11T04:15:15.602Z  
 
 ```sql
 # Write your MySQL query statement below
 SELECT id, 
-COUNT(3) AS num
+COUNT(*) AS num
 FROM
 (
     SELECT requester_id AS id
