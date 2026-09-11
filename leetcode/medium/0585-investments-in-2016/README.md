@@ -69,9 +69,9 @@ So, the result is the sum of tiv_2016 of the first and last record, which is 45.
 ## Solution
 
 **Language:** SQL  
-**Runtime:** 87 ms  
-**Memory:** 0B  
-**Submitted:** 2026-09-11T04:29:20.073Z  
+**Runtime:** 812 ms (beats 15.01%)  
+**Memory:** 0B (beats 100.00%)  
+**Submitted:** 2026-09-11T04:29:26.932Z  
 
 ```sql
 # Write your MySQL query statement below
