@@ -52,28 +52,32 @@ Output: -1
 
 **Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 43.7 MB (beats 65.63%)  
-**Submitted:** 2026-09-11T08:49:37.767Z  
+**Memory:** 44 MB (beats 27.95%)  
+**Submitted:** 2026-09-11T08:55:50.651Z  
 
 ```java
 class Solution {
     public int search(int[] nums, int target) {
+        int n = nums.length;
         int left = 0;
-        int right = nums.length-1;
+        int right = n-1;
 
         while (left <= right){
             int mid = left + (right-left)/2;
 
             if (nums[mid] == target) return mid;
 
+            //left half sorted
             if (nums[left] <= nums[mid]){
-                if (nums[left] <= target && target< nums[mid]){
+                //if target is in left half
+                if (target >= nums[left] && target < nums[mid]){
                     right = mid-1;
                 }
                 else left = mid+1;
             }
+
             else {
-                if (nums[mid] < target && target <= nums[right]){
+                if (target > nums[mid] && target <= nums[right]){
                     left = mid+1;
                 }
                 else right = mid-1;
