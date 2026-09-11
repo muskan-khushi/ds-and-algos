@@ -48,40 +48,32 @@ Output: 23
 
 ## Solution
 
-**Language:** C++  
-**Runtime:** 3 ms (beats 94.49%)  
-**Memory:** 22.9 MB (beats 89.03%)  
-**Submitted:** 2026-08-27T06:03:55.149Z  
+**Language:** Java  
+**Runtime:** 7 ms (beats 83.10%)  
+**Memory:** 48 MB (beats 42.57%)  
+**Submitted:** 2026-09-11T09:25:52.968Z  
 
-```cpp
+```java
 class Solution {
-public:
-    int minEatingSpeed(vector<int>& piles, int h) {
-        int low = 1;
-        int high = *max_element(piles.begin(), piles.end());
-        int ans = high;
-
-        while (low <= high){
-            int k = low + (high-low)/2;
-            long long hours = 0;
+    public int minEatingSpeed(int[] piles, int h) {
+        int left = 1;
+        int right = 0;
+        for (int pile : piles){
+            right = Math.max(pile, right);
+        }
+        while (left < right){
+            int mid = left + (right-left)/2;
+            int hours = 0;
 
             for (int pile : piles){
-                hours += (pile+k-1)/k;
+                hours += (pile+mid-1)/mid;
             }
-
-            if (hours <= h){
-                ans = k;
-                high = k - 1;
-            }
-
-            else {
-                low = k+1;
-            }
+            if (hours <= h) right = mid;
+            else left = mid+1;
         }
-
-        return ans;
+        return left;
     }
-};
+}
 ```
 
 ---
