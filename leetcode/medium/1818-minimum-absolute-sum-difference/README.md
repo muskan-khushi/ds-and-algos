@@ -63,9 +63,9 @@ This yields an absolute sum difference of |10-9| + |10-3| + |4-5| + |4-1| + |2-7
 ## Solution
 
 **Language:** Java  
-**Runtime:** 75 ms (beats 26.22%)  
-**Memory:** 89 MB (beats 77.90%)  
-**Submitted:** 2026-09-12T04:21:28.936Z  
+**Runtime:** 73 ms (beats 29.21%)  
+**Memory:** 89.1 MB (beats 64.79%)  
+**Submitted:** 2026-09-12T04:55:48.275Z  
 
 ```java
 class Solution {
@@ -78,28 +78,29 @@ class Solution {
         int maxGain = 0;
 
         for (int i=0; i<n; i++){
-            int oldDiff = Math.abs(nums1[i] - nums2[i]);
-            total += oldDiff;
+        int oldDiff = Math.abs(nums2[i] - nums1[i]);
+        total += oldDiff;
 
-            int index = lowerBound(sorted, nums2[i]);
-            if (index < n){
-                int newDiff = Math.abs(sorted[index] - nums2[i]);
-                int gain = oldDiff - newDiff;
-                maxGain = Math.max(gain, maxGain);
-            }
-            if (index > 0){
-                int newDiff = Math.abs(sorted[index-1]-nums2[i]);
-                int gain = oldDiff - newDiff;
-                maxGain = Math.max(gain, maxGain);
-            }
+        int index = binarySearch(sorted, nums2[i]);
+        if (index < n){
+            int newDiff = Math.abs(sorted[index] - nums2[i]);
+            int gain = oldDiff - newDiff;
+            maxGain = Math.max(gain, maxGain);
         }
-        return (int)((total-maxGain)%1_000_000_007);
+        if (index > 0){
+            int newDiff = Math.abs(sorted[index-1] - nums2[i]);
+            int gain = oldDiff - newDiff;
+            maxGain = Math.max(gain, maxGain);
+        }
+        }
+        return (int)((total-maxGain)%1000000007);
+
     }
 
-    private int lowerBound(int[] arr, int target){
+    private int binarySearch(int[] arr, int target){
         int left = 0;
         int right = arr.length;
-
+        
         while (left < right){
             int mid = left + (right-left)/2;
             if (arr[mid] >= target) right = mid;
