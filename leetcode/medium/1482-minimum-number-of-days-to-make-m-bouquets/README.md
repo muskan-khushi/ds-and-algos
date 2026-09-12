@@ -64,25 +64,26 @@ It is obvious that we can make two bouquets in different ways.
 
 **Language:** Java  
 **Runtime:** 16 ms (beats 91.38%)  
-**Memory:** 82.7 MB (beats 28.57%)  
-**Submitted:** 2026-09-12T05:47:46.896Z  
+**Memory:** 82.9 MB (beats 12.70%)  
+**Submitted:** 2026-09-12T15:38:58.793Z  
 
 ```java
 class Solution {
     public int minDays(int[] bloomDay, int m, int k) {
         int n = bloomDay.length;
+
         if ((long)m*k > n) return -1;
 
         int left = Integer.MAX_VALUE;
         int right = Integer.MIN_VALUE;
-
+        
         for (int bloom : bloomDay){
             left = Math.min(left, bloom);
             right = Math.max(right, bloom);
         }
 
         while (left < right){
-            int mid = left + (right - left)/2;
+            int mid = left + (right-left)/2;
 
             int consecutive = 0;
             int bouquets = 0;
@@ -90,18 +91,21 @@ class Solution {
             for (int day : bloomDay){
                 if (day <= mid){
                     consecutive++;
+
                     if (consecutive == k){
                         bouquets++;
                         consecutive = 0;
                     }
                 }
-                else consecutive = 0;
+                else {
+                    consecutive = 0;
+                }
             }
 
             if (bouquets >= m) right = mid;
             else left = mid+1;
-        }
 
+        }
         return left;
     }
 }
