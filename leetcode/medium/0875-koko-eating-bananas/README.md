@@ -49,9 +49,9 @@ Output: 23
 ## Solution
 
 **Language:** Java  
-**Runtime:** 7 ms (beats 83.10%)  
-**Memory:** 48 MB (beats 30.01%)  
-**Submitted:** 2026-09-11T09:35:34.116Z  
+**Runtime:** 7 ms (beats 83.23%)  
+**Memory:** 47.7 MB (beats 87.32%)  
+**Submitted:** 2026-09-12T03:52:23.515Z  
 
 ```java
 class Solution {
@@ -62,13 +62,12 @@ class Solution {
         for (int pile : piles){
             right = Math.max(right, pile);
         }
-
         while (left < right){
             int mid = left + (right-left)/2;
             int hours = 0;
-            
-            for (int pile : piles) hours += (mid+pile-1)/mid;
-
+            for (int pile : piles){
+                hours += (mid + pile - 1)/mid;
+            }
             if (hours <= h) right = mid;
             else left = mid+1;
         }
