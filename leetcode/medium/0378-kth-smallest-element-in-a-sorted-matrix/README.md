@@ -50,21 +50,23 @@ Output: -5
 
 **Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 52.2 MB (beats 5.39%)  
-**Submitted:** 2026-09-13T03:43:15.069Z  
+**Memory:** 52.2 MB (beats 12.43%)  
+**Submitted:** 2026-09-13T03:48:17.894Z  
 
 ```java
 class Solution {
     public int kthSmallest(int[][] matrix, int k) {
         int n = matrix.length;
+
         int left = matrix[0][0];
         int right = matrix[n-1][n-1];
 
         while (left < right){
             int mid = left + (right-left)/2;
-            int count = countLessEqual(matrix, mid);
 
-            if (count < k) left = mid+1;
+            int ans = countLessEqual(matrix, mid);
+
+            if (ans < k) left = mid+1;
             else right = mid;
         }
         return left;
@@ -78,9 +80,9 @@ class Solution {
 
         int count = 0;
 
-        while (row >= 0 && col < n){
+        while (row>=0 && col < n){
             if (matrix[row][col] <= target){
-                count += row + 1;
+                count += row+1;
                 col++;
             }
             else row--;
