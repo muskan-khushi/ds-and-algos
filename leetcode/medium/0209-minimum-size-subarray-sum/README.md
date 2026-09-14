@@ -48,28 +48,29 @@ Output: 0
 ## Solution
 
 **Language:** Java  
-**Runtime:** 2 ms (beats 21.20%)  
-**Memory:** 69.5 MB (beats 11.51%)  
-**Submitted:** 2026-09-10T03:38:58.346Z  
+**Runtime:** 1 ms (beats 99.83%)  
+**Memory:** 69.3 MB (beats 27.92%)  
+**Submitted:** 2026-09-14T08:52:30.549Z  
 
 ```java
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
         int n = nums.length;
-        int minLen = Integer.MAX_VALUE;
-        int sum = 0;
         int left = 0;
+        int sum = 0;
+        int minlen = Integer.MAX_VALUE;
 
         for (int right=0; right<n; right++){
             sum += nums[right];
             while (sum >= target){
-                minLen = Math.min(minLen, right-left+1);
+                                minlen = Math.min(minlen, right-left+1);
+
                 sum -= nums[left];
                 left++;
             }
         }
-        if (minLen == Integer.MAX_VALUE) return 0;
-        return minLen;
+
+        return minlen == Integer.MAX_VALUE? 0 : minlen;
     }
 }
 ```
