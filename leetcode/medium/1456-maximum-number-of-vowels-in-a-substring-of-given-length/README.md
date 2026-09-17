@@ -48,34 +48,31 @@ Explanation: "lee", "eet" and "ode" contain 2 vowels.
 ## Solution
 
 **Language:** Java  
-**Runtime:** 20 ms (beats 27.98%)  
-**Memory:** 45.2 MB (beats 99.86%)  
-**Submitted:** 2026-09-17T03:53:25.431Z  
+**Runtime:** 14 ms (beats 50.26%)  
+**Memory:** 46.3 MB (beats 80.47%)  
+**Submitted:** 2026-09-17T04:11:48.502Z  
 
 ```java
 class Solution {
     public int maxVowels(String s, int k) {
-        int n = s.length();
         int left = 0;
         int vowelCount = 0;
         int maxCount = 0;
-        for (int right = 0; right<n; right++){
-            if (s.charAt(right) == 'a' || s.charAt(right) == 'e' || s.charAt(right) == 'i' || s.charAt(right) == 'o' || s.charAt(right) == 'u') vowelCount++;
 
-            if (right-left+1 == k){
-                maxCount = Math.max(vowelCount, maxCount);
-                if (s.charAt(left) == 'a' ||
-                    s.charAt(left) == 'e' ||
-                    s.charAt(left) == 'i' ||
-                    s.charAt(left) == 'o' ||
-                    s.charAt(left) == 'u') {
-
-                    vowelCount--;
-                }
+        for (int right = 0; right < s.length(); right++){
+            if (isVowel(s.charAt(right))) vowelCount++;
+            if (right - left + 1 == k){
+                maxCount = Math.max(maxCount, vowelCount);
+                if (isVowel(s.charAt(left))) vowelCount--;
                 left++;
             }
         }
+
         return maxCount;
+    }
+
+    private boolean isVowel(char c){
+        return c == 'a' || c == 'e' || c=='i' || c=='o' || c=='u';
     }
 }
 ```
