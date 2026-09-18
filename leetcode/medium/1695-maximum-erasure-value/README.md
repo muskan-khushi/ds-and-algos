@@ -40,19 +40,20 @@ Explanation: The optimal subarray here is [5,2,1] or [1,2,5].
 ## Solution
 
 **Language:** Java  
-**Runtime:** 51 ms (beats 70.10%)  
-**Memory:** 93.1 MB (beats 52.61%)  
-**Submitted:** 2026-09-17T04:20:18.674Z  
+**Runtime:** 51 ms (beats 69.99%)  
+**Memory:** 92.1 MB (beats 84.13%)  
+**Submitted:** 2026-09-18T06:08:21.942Z  
 
 ```java
 class Solution {
     public int maximumUniqueSubarray(int[] nums) {
+        //max sum of subarray of unique elements
         HashSet<Integer> set = new HashSet<>();
-        int left = 0;
         int sum = 0;
         int maxSum = 0;
+        int left = 0;
 
-        for (int right = 0; right <nums.length; right++){
+        for (int right = 0; right<nums.length; right++){
             while (set.contains(nums[right])){
                 set.remove(nums[left]);
                 sum -= nums[left];
@@ -61,7 +62,7 @@ class Solution {
             set.add(nums[right]);
             sum += nums[right];
 
-            maxSum = Math.max(sum, maxSum);
+            maxSum = Math.max(maxSum, sum);
         }
         return maxSum;
     }
