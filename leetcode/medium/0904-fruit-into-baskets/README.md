@@ -55,16 +55,16 @@ If we had started at the first tree, we would only pick from trees [1,2].
 ## Solution
 
 **Language:** Java  
-**Runtime:** 54 ms (beats 63.81%)  
-**Memory:** 70.4 MB (beats 55.45%)  
-**Submitted:** 2026-09-21T13:20:29.313Z  
+**Runtime:** 53 ms (beats 77.80%)  
+**Memory:** 70.3 MB (beats 67.20%)  
+**Submitted:** 2026-09-21T10:59:20.077Z  
 
 ```java
 class Solution {
     public int totalFruit(int[] fruits) {
         int n = fruits.length;
-        int left = 0;
         int ans = 0;
+        int left = 0;
 
         HashMap<Integer, Integer> freq = new HashMap<>();
 
@@ -72,7 +72,7 @@ class Solution {
             freq.put(fruits[right], freq.getOrDefault(fruits[right],0)+1);
             while (freq.size() > 2){
                 freq.put(fruits[left], freq.get(fruits[left])-1);
-                if (freq.get(fruits[left]) == 0) freq.remove(fruits[left]);
+                if (freq.get(fruits[left])==0) freq.remove(fruits[left]);
                 left++;
             }
             ans = Math.max(ans, right-left+1);
