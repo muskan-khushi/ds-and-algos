@@ -55,9 +55,9 @@ If we had started at the first tree, we would only pick from trees [1,2].
 ## Solution
 
 **Language:** Java  
-**Runtime:** 53 ms (beats 77.80%)  
-**Memory:** 70.4 MB (beats 55.45%)  
-**Submitted:** 2026-09-21T10:55:46.245Z  
+**Runtime:** 54 ms (beats 63.81%)  
+**Memory:** 70.5 MB (beats 55.45%)  
+**Submitted:** 2026-09-21T10:55:54.954Z  
 
 ```java
 class Solution {
